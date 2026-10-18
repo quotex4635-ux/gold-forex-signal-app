@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="Gold and Forex multi-timeframe signal analysis">
+  <title>Gold & Forex Signal Desk</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">G</div>
+    <div>
+      <div class="brand-title">Gold & Forex Signal Desk</div>
+      <div class="brand-subtitle">Price Action · ICT/SMC · Multi-timeframe</div>
+    </div>
+    <span class="pill neutral">Signal only</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">MARKET ANALYSIS</p>
+        <h1>Find the setup.<br><span>Verify the confirmations.</span></h1>
+        <p class="muted">লাইভ candle data দিয়ে analysis চালাও। ডেটা না থাকলে অ্যাপ সিগন্যাল বানিয়ে দেখাবে না।</p>
+      </div>
+    </section>
+
+    <section class="panel controls">
+      <label for="symbol">Market</label>
+      <select id="symbol">
+        <option value="XAU/USD">Gold — XAU/USD</option>
+        <option value="EUR/USD">EUR/USD</option>
+        <option value="GBP/USD">GBP/USD</option>
+        <option value="USD/JPY">USD/JPY</option>
+        <option value="AUD/USD">AUD/USD</option>
+        <option value="USD/CAD">USD/CAD</option>
+        <option value="USD/CHF">USD/CHF</option>
+        <option value="NZD/USD">NZD/USD</option>
+      </select>
+      <button id="analyzeBtn" class="primary">ANALYZE MARKET</button>
+      <p class="hint">D1 → H4 → H1 trend/context · M15/M5 entry confirmation</p>
+    </section>
+
+    <div id="status" class="status" role="status">Ready. API setup required before live analysis.</div>
+
+    <section id="result" class="hidden">
+      <div class="signal-card panel">
+        <div class="signal-head">
+          <div>
+            <p class="eyebrow" id="resultSymbol">XAU/USD</p>
+            <h2 id="signalLabel">WAIT</h2>
+          </div>
+          <div class="score">
+            <span id="scoreValue">—</span>
+            <small>Confluence score</small>
+          </div>
+        </div>
+        <p id="rationale" class="muted"></p>
+        <div class="metrics">
+          <div><span>Entry</span><strong id="entry">—</strong></div>
+          <div><span>Stop Loss</span><strong id="sl">—</strong></div>
+          <div><span>TP1</span><strong id="tp1">—</strong></div>
+          <div><span>TP2</span><strong id="tp2">—</strong></div>
+          <div><span>TP3</span><strong id="tp3">—</strong></div>
+          <div><span>Risk / Reward</span><strong id="rr">—</strong></div>
+        </div>
+        <p id="scoreNote" class="hint"></p>
+      </div>
+
+      <section class="panel">
+        <div class="section-title">
+          <div><p class="eyebrow">WHY THIS SIGNAL?</p><h3>Confirmation details</h3></div>
+        </div>
+        <div id="confirmations" class="confirmation-list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title"><div><p class="eyebrow">TOP-DOWN ANALYSIS</p><h3>Timeframe breakdown</h3></div></div>
+        <div id="timeframes" class="tf-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title"><div><p class="eyebrow">DATA QUALITY</p><h3>Provider & timestamp</h3></div></div>
+        <p id="dataSource" class="muted"></p>
+        <p id="dataNote" class="hint"></p>
+        <p id="disclaimer" class="hint"></p>
+      </section>
+    </section>
+
+    <section class="panel small-print">
+      <h3>Important</h3>
+      <p>এটি একটি প্রাথমিক rules-based prototype, নিশ্চিত লাভের সিস্টেম নয়। Signal ভুল হতে পারে। আগে demo/paper trading-এ পরীক্ষা করো। কোনো auto-trading নেই।</p>
+      <p>লাইভ ডেটা পেতে Vercel-এ server-side API key সেট করতে হবে। Twelve Data-এর free plan-এ XAU/USD intraday commodity access সীমিত হতে পারে; provider access না থাকলে অ্যাপ পরিষ্কার error দেখাবে, fake price বা signal নয়।</p>
+    </section>
+    <footer>Built for mobile · Not financial advice</footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
